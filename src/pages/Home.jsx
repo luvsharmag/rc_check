@@ -27,9 +27,8 @@ const Home = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-500 p-6">
+    <div className="flex items-center justify-center min-h-screen w-full bg-gradient-to-r from-blue-400 to-purple-500 p-6">
       <div className="w-full max-w-3xl bg-white rounded-xl shadow-lg p-6">
-        {/* Animated Heading */}
         <motion.h1
           className="text-3xl font-bold text-center text-blue-700 mb-6"
           initial={{ opacity: 0, y: -20 }}
@@ -39,16 +38,12 @@ const Home = () => {
           Car Details Finder 🚗
         </motion.h1>
 
-        {/* Search Bar */}
         <SearchBar onSearch={handleSearch} />
 
-        {/* Loader */}
         {loading && <Loader />}
 
-        {/* Error Message */}
         {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
 
-        {/* Vehicle Details */}
         {vehicle && <VehicleDetails vehicle={vehicle} />}
       </div>
     </div>

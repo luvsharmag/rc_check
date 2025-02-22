@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const SearchBar = ({ onSearch }) => {
   const [carNumber, setCarNumber] = useState("");
@@ -10,21 +11,32 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-center gap-4 bg-gray-100 p-4 rounded-lg shadow-md">
-      <input
+    <motion.div
+      className="flex flex-col sm:flex-row items-center bg-gray-100 p-4 rounded-lg shadow-md w-full space-y-4 sm:space-y-0 sm:space-x-4"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.input
         type="text"
         placeholder="Enter Car Number"
         value={carNumber}
         onChange={(e) => setCarNumber(e.target.value)}
-        className="px-4 py-2 border border-gray-300 rounded-lg w-full sm:w-80 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="px-4 py-3 border border-gray-300 rounded-lg w-full sm:flex-1 text-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        whileFocus={{ scale: 1.05 }}
       />
-      <button
+      <motion.button
         onClick={handleSearch}
-        className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-transform transform hover:scale-105"
+        className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md w-full sm:w-auto sm:flex-shrink-0"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
       >
         Search
-      </button>
-    </div>
+      </motion.button>
+    </motion.div>
   );
 };
 

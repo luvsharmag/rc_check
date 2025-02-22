@@ -1,5 +1,5 @@
-const API_KEY = "Ey5viGAdZwNk2krZjVIdYlvv1l0LUP0a";
-const BASE_URL = "https://api.gridlines.io/rc-api/fetch-detailed";
+const API_KEY = import.meta.env.VITE_API_KEY;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const fetchVehicleData = async (carNumber) => {
   const requestBody = {
